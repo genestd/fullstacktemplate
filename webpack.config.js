@@ -4,8 +4,8 @@ var HtmlWebpackPlugin = require('webpack-html-plugin');
 //var CopyWebpackPlugin = require('copy-webpack-plugin');
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/index.html',
-  filename: '/server/views/index.html',
+  template: __dirname + '/server/views/index.html',
+  filename: 'index.html',
   inject: 'body'
 });
 var devFlagPlugin = new webpack.DefinePlugin({
@@ -23,7 +23,7 @@ module.exports={
     filename: "index_bundle.js"
   },
   devServer: {
-    contentBase: __dirname + '/client/dist'
+    contentBase: __dirname + '/server/views'
   },
   module: {
     loaders: [
