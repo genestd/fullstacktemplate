@@ -3,11 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('webpack-html-plugin');
 //var CopyWebpackPlugin = require('copy-webpack-plugin');
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/server/views/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
+
 var devFlagPlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
 });
@@ -18,7 +14,7 @@ module.exports={
     './client/src/index.js'
   ],
   output: {
-    path: __dirname + '/client/dist',
+    path: __dirname + '/server/views/js',
     //publicPath: './dist',
     filename: "index_bundle.js"
   },
@@ -34,7 +30,7 @@ module.exports={
     ]
   },
   plugins: [
-    HTMLWebpackPluginConfig,
+    // HTMLWebpackPluginConfig,
     // new CopyWebpackPlugin([
     //         { from: './src/icons', to: 'icons' },
     //         { from: './src/styles/entypo', to: 'styles/entypo'},
